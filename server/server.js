@@ -24,7 +24,7 @@ const startServer = async () => {
     app.get("/debug-sentry", function mainHandler(req, res) {
       throw new Error("My first Sentry error!")
     })
-    app.post("/webhooks", ClerkWebhooks )
+    app.post("/webhooks", ClerkWebhooks)
 
     // Port
     const PORT = process.env.PORT || 5000
@@ -37,6 +37,13 @@ const startServer = async () => {
     process.exit(1) // Exit with failure
   }
 }
+
+// Start the server
+startServer()
+
+// Ensure the server is exported for Vercel
+export default app
+
 
 // Start the server
 startServer()
